@@ -1,17 +1,6 @@
 class TextFormatter {
 
-  /*
-  TODO 
-<<<<<<< HEAD
-  - Namen der Variablen
-  - evtl mehr Funktionen zur Übersichtlichkeit
-=======
-  - Leerzeichen am Anfang einer Zeile
-  - Namen der Variablen
-  - evtl mehr Funktionen zur Übersichtlichkeit
-  - letzten 20 Zeichen ausgeben lassen 
->>>>>>> 230aa358224226900749ee0e91979a3840bc05cb
-  */
+ 
 
   private static final String text = "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy " +
           "eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et " +

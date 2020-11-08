@@ -33,8 +33,10 @@ class TextFormatter {
 
 
   public void print(String textA) {
-    while(textA.length() >= 30){
 
+    
+    while(textA.length() >= maxLineLength){
+      
       trimSentence(textA);
       System.out.println(firstPart);
       textA = remainder;
@@ -52,7 +54,9 @@ class TextFormatter {
 
       while(textLine.length() >= maxLineLength){
         
-        builder.replace(0, 29, "                              ");
+        
+        builder.replace(0, maxLineLength, "");
+        for (int i = 0; i < maxLineLength; i++) builder.append(' ');
 
         if (textLine.charAt(maxLineLength - 1) == ' '){
           trimSentence(textLine);
@@ -67,24 +71,27 @@ class TextFormatter {
          }
           
       }
-
+builder.replace(0, maxLineLength, "");
+      for (int i = 0; i < maxLineLength; i++) builder.append(' '); 
+          
       System.out.println(builder.replace(maxLineLength - remainder.length()-1, maxLineLength, remainder));
       
 
    }
 
   public void trimSentence(String text){
+    if(text.charAt(0) == ' ') text = text.substring(1);
 
-    if (text.charAt(30) == ' '){
-      firstPart = text.substring(1, 30);
-      remainder = text.substring(30);
+    if (text.charAt(maxLineLength) == ' '){
+      firstPart = text.substring(5, maxLineLength);
+      remainder = text.substring(maxLineLength);
 
     } else {
       
-      while (text.charAt(30 - excess) != ' ') excess++;
+      while (text.charAt(maxLineLength - excess) != ' ') excess++;
 
-      firstPart = text.substring(0, 30-excess+1);
-      remainder = text.substring(30-excess+1);
+      firstPart = text.substring(0, maxLineLength - excess + 1);
+      remainder = text.substring(maxLineLength - excess + 1);
       excess = 0;
 
     }
